@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Prediction History</title>
+
+<style>
+
+body{
+
+font-family:Arial;
+
+background:#eef5ee;
+
+margin:20px;
+
+}
+
+h1{
+
+text-align:center;
+
+color:green;
+
+}
+
+table{
+
+width:100%;
+
+border-collapse:collapse;
+
+margin-top:20px;
+
+}
+
+th,td{
+
+border:1px solid gray;
+
+padding:10px;
+
+text-align:center;
+
+}
+
+th{
+
+background:green;
+
+color:white;
+
+}
+
+input{
+
+padding:10px;
+
+margin:5px;
+
+width:200px;
+
+}
+
+button{
+
+padding:10px 20px;
+
+background:green;
+
+color:white;
+
+border:none;
+
+cursor:pointer;
+
+border-radius:5px;
+
+}
+
+button:hover{
+
+background:darkgreen;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>📋 Prediction History</h1>
+
+<form method="GET" action="/history">
+
+<input
+type="text"
+name="crop"
+placeholder="Search Crop"
+value="{{ crop }}">
+
+<input
+type="text"
+name="disease"
+placeholder="Search Disease"
+value="{{ disease }}">
+
+<button type="submit">
+
+Search
+
+</button>
+
+<a href="/history">
+
+<button type="button">
+
+Reset
+
+</button>
+
+</a>
+
+</form>
+
+<table>
+
+<tr>
+
+<th>Crop</th>
+
+<th>Disease</th>
+
+<th>Confidence</th>
+
+<th>Soil Moisture</th>
+
+<th>Temperature</th>
+
+<th>Humidity</th>
+
+<th>Rainfall</th>
+
+</tr>
+
+{% for row in records %}
+
+<tr>
+
+<td>{{ row.crop }}</td>
+
+<td>{{ row.disease }}</td>
+
+<td>{{ row.confidence }}%</td>
+
+<td>{{ row.soil_moisture }}%</td>
+
+<td>{{ row.temperature }}</td>
+
+<td>{{ row.humidity }}</td>
+
+<td>{{ row.rainfall }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br><br>
+
+<a href="/dashboard">
+<button>📊 Dashboard</button>
+</a>
+
+<a href="/map">
+<button>🌍 Disease Map</button>
+</a>
+
+<a href="/">
+<button>🏠 Home</button>
+</a>
+
+<footer>
+
+© 2026 AgriCrop | AI Powered Plant Disease Detection & Soil Moisture Intelligence
+
+</footer>
+
+</body>
+
+</html>

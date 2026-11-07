@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>AgriCrop</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="hero">
+
+    <div class="hero-left">
+        <img src="{{ url_for('static', filename='images/log.png') }}" alt="AgriCrop Logo">
+    </div>
+
+    <div class="hero-right">
+
+        <h1>AgriCrop</h1>
+
+        <p class="hero-text">
+            🤖 AI Powered Plant Disease Detection<br><br>
+            💧 Soil Moisture Prediction<br><br>
+            🗺️ Geospatial Disease Mapping
+        </p>
+
+    </div>
+
+</div>
+
+<div class="container">
+
+
+<form
+action="/upload"
+method="POST"
+enctype="multipart/form-data">
+
+<input
+type="text"
+name="crop"
+placeholder="Crop Name"
+required>
+
+<input
+type="number"
+step="any"
+name="latitude"
+placeholder="Latitude"
+required>
+
+<input
+type="number"
+step="any"
+name="longitude"
+placeholder="Longitude"
+required>
+
+<input
+type="number"
+name="temperature"
+placeholder="Temperature"
+required>
+
+<input
+type="number"
+name="humidity"
+placeholder="Humidity"
+required>
+
+<input
+type="number"
+name="rainfall"
+placeholder="Rainfall"
+required>
+
+<input
+type="file"
+name="leaf"
+required>
+
+<button type="submit">
+
+Predict Disease
+
+</button>
+
+</form>
+
+
+<br>
+
+<a href="/dashboard">
+    <button type="button">📊 Dashboard</button>
+</a>
+
+<a href="/map">
+    <button type="button">🌍 Disease Map</button>
+</a>
+
+<a href="/history">
+    <button type="button">📋 History</button>
+</a>
+
+{% if success %}
+
+<hr>
+
+<div class="prediction-result">
+
+    <h2>Prediction Result</h2>
+
+    <div class="result-image">
+
+        <img
+        src="{{ url_for('uploaded_file', filename=filename) }}"
+        alt="Leaf Image">
+
+    </div>
+
+    <table class="result-table">
+
+<tr>
+    <td>🌱 Crop</td>
+    <td>{{ crop }}</td>
+</tr>
+
+<tr>
+    <td>🦠 Disease</td>
+    <td>{{ disease }}</td>
+</tr>
+
+<tr>
+    <td>🎯 Confidence</td>
+    <td>{{ confidence }}%</td>
+</tr>
+
+<tr>
+    <td>🌡 Temperature</td>
+    <td>{{ temperature }}°C</td>
+</tr>
+
+<tr>
+    <td>💧 Humidity</td>
+    <td>{{ humidity }}%</td>
+</tr>
+
+<tr>
+    <td>🌱 Soil Moisture</td>
+    <td>{{ soil }}%</td>
+</tr>
+
+<tr>
+    <td>🌧 Rainfall</td>
+    <td>{{ rainfall }} mm</td>
+</tr>
+
+</table>
+
+    <hr>
+
+    <div class="treatment-box">
+
+        <h2>🌿 AI Treatment Recommendation</h2>
+
+        <table>
+
+            <tr>
+                <th>Disease</th>
+                <td>{{ disease }}</td>
+            </tr>
+
+            <tr>
+                <th>Symptoms</th>
+                <td>{{ recommendation.Symptoms }}</td>
+            </tr>
+
+            <tr>
+                <th>Cause</th>
+                <td>{{ recommendation.Cause }}</td>
+            </tr>
+
+            <tr>
+                <th>Chemical Treatment</th>
+                <td>{{ recommendation.Treatment }}</td>
+            </tr>
+
+            <tr>
+                <th>Organic Solution</th>
+                <td>{{ recommendation.Organic }}</td>
+            </tr>
+
+            <tr>
+                <th>Prevention</th>
+                <td>{{ recommendation.Prevention }}</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endif %}
+
+
+
+</div>
+
+<footer>
+
+© 2026 AgriCrop | AI Powered Plant Disease Detection & Soil Moisture Intelligence
+
+</footer>
+
+</body>
+
+</html>

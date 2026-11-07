@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Dashboard</title>
+
+<style>
+
+body{
+
+font-family:Arial;
+
+background:#eef5ee;
+
+margin:0;
+
+}
+
+h1{
+
+background:green;
+
+color:white;
+
+padding:20px;
+
+text-align:center;
+
+}
+
+.container{
+
+width:90%;
+
+margin:auto;
+
+}
+
+.cards{
+
+display:flex;
+
+justify-content:space-between;
+
+margin-top:20px;
+
+}
+
+.card{
+
+width:22%;
+
+background:white;
+
+padding:20px;
+
+text-align:center;
+
+font-size:22px;
+
+border-radius:10px;
+
+box-shadow:0 0 10px gray;
+
+}
+
+.chart{
+
+text-align:center;
+
+margin-top:40px;
+
+}
+
+.buttons{
+
+text-align:center;
+
+margin-top:30px;
+
+}
+
+button{
+
+padding:15px 25px;
+
+font-size:18px;
+
+background:green;
+
+color:white;
+
+border:none;
+
+cursor:pointer;
+
+margin:10px;
+
+border-radius:8px;
+
+}
+
+button:hover{
+
+background:darkgreen;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>
+
+🌱 AgriCrop Dashboard
+
+</h1>
+
+<div class="container">
+
+<div class="cards">
+
+<div class="card">
+
+Total Predictions
+
+<h2>
+
+{{ total }}
+
+</h2>
+
+</div>
+
+<div class="card">
+
+Healthy
+
+<h2>
+
+{{ healthy }}
+
+</h2>
+
+</div>
+
+<div class="card">
+
+Diseased
+
+<h2>
+
+{{ diseased }}
+
+</h2>
+
+</div>
+
+<div class="card">
+
+Average Soil Moisture
+
+<h2>
+
+{{ average }} %
+
+</h2>
+
+</div>
+
+</div>
+
+<div class="chart">
+
+<h2>Disease Distribution</h2>
+
+<img
+src="{{ url_for('static', filename='charts/pie.png') }}"
+width="450">
+
+<br><br>
+
+<h2>Soil Moisture Levels</h2>
+
+<img
+src="{{ url_for('static', filename='charts/bar.png') }}"
+width="650">
+
+</div>
+
+<hr>
+
+<h2 style="text-align:center;">Recent Predictions</h2>
+
+<table
+border="1"
+width="100%"
+cellpadding="10"
+style="border-collapse:collapse;text-align:center;">
+
+<tr style="background:green;color:white;">
+
+<th>Crop</th>
+<th>Disease</th>
+<th>Confidence (%)</th>
+<th>Soil Moisture (%)</th>
+
+</tr>
+
+{% for row in records %}
+
+<tr>
+
+<td>{{ row.crop }}</td>
+
+<td>{{ row.disease }}</td>
+
+<td>{{ row.confidence }}</td>
+
+<td>{{ row.soil_moisture }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br><br>
+
+<div class="buttons">
+
+<a href="/map">
+
+<button>
+
+🌍 Disease Map
+
+</button>
+
+</a>
+
+<a href="/history">
+
+<button>
+
+📋 History
+
+</button>
+
+</a>
+
+<a href="/">
+
+<button>
+
+🏠 Home
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+<footer>
+
+© 2026 AgriCrop | AI Powered Plant Disease Detection & Soil Moisture Intelligence
+
+</footer>
+
+</body>
+
+</html>

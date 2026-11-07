@@ -1,0 +1,402 @@
+/* ===== AgriCrop Dashboard CSS ===== */
+
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#eef5ee;
+}
+
+/* Navigation Bar */
+
+.navbar{
+    background:#2E7D32;
+    padding:15px;
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.2);
+}
+
+.navbar a{
+    color:white;
+    text-decoration:none;
+    font-size:20px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.navbar a:hover{
+    color:#FFD54F;
+}
+
+/* Headings */
+
+h1{
+    text-align:center;
+    color:#1B5E20;
+    margin-top:25px;
+}
+
+h2{
+    text-align:center;
+    color:#2E7D32;
+}
+
+h3{
+    color:#2E7D32;
+    text-align:center;
+    margin-top:20px;
+}
+
+/* Horizontal Line */
+
+hr{
+    margin:30px auto;
+    width:90%;
+    border:1px solid #ccc;
+}
+
+/* Container */
+
+.container{
+    width:90%;
+    margin:auto;
+    padding:20px;
+}
+
+/* Cards */
+
+.card{
+
+background:white;
+
+border-left:8px solid green;
+
+box-shadow:0px 0px 15px gray;
+
+transition:.3s;
+
+}
+
+.card:hover{
+
+transform:scale(1.05);
+
+}
+
+/* Tables */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+table th{
+    background:#2E7D32;
+    color:white;
+    padding:12px;
+}
+
+table td{
+    padding:10px;
+    border:1px solid #ddd;
+    text-align:center;
+}
+
+table tr:nth-child(even){
+    background:#f5f5f5;
+}
+
+/* Buttons */
+
+button{
+
+background:#2E7D32;
+
+color:white;
+
+padding:12px 20px;
+
+border:none;
+
+border-radius:8px;
+
+font-size:18px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+button:hover{
+
+background:#1B5E20;
+
+transform:scale(1.05);
+
+}
+
+/* Input Fields */
+
+input,
+select{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:5px;
+    font-size:16px;
+}
+
+/* Images */
+
+img{
+    max-width:100%;
+    border-radius:10px;
+}
+
+/* Footer */
+
+footer{
+
+margin-top:50px;
+
+padding:20px;
+
+background:#2E7D32;
+
+color:white;
+
+text-align:center;
+
+font-size:16px;
+
+}
+
+.hero{
+
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+
+    padding:40px;
+
+    background:#FFF0F5;
+
+    margin:20px;
+
+    border-radius:15px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.15);
+
+}
+
+.hero-left{
+
+    width:220px;
+    text-align:center;
+
+}
+
+.hero-left img{
+
+    width:180px;
+    height:180px;
+    object-fit:contain;
+
+}
+
+.hero-right{
+
+    flex:1;
+    text-align:center;
+
+}
+
+@media(max-width:768px){
+
+.cards{
+
+flex-direction:column;
+
+}
+
+.card{
+
+width:95%;
+
+margin:10px auto;
+
+}
+
+table{
+
+display:block;
+
+overflow-x:auto;
+
+}
+
+}
+.result-image{
+
+    text-align:center;
+
+    margin:20px 0;
+
+}
+
+.result-image img{
+
+    width:300px;
+
+    height:300px;
+
+    object-fit:cover;
+
+    border-radius:12px;
+
+    border:4px solid green;
+
+    box-shadow:0px 0px 15px rgba(0,0,0,0.3);
+
+}
+
+.prediction-result{
+
+    width:90%;
+    margin:40px auto;
+    text-align:center;
+
+}
+
+.prediction-result h2{
+
+    color:#2E7D32;
+    font-size:38px;
+
+}
+
+.prediction-result h3{
+
+    color:#2E7D32;
+    font-size:24px;
+    margin:12px 0;
+
+}
+
+.result-image{
+
+    display:flex;
+    justify-content:center;
+    margin:20px 0;
+
+}
+
+.result-image img{
+
+    width:320px;
+    height:320px;
+    object-fit:cover;
+    border-radius:12px;
+    border:4px solid green;
+    box-shadow:0 0 15px rgba(0,0,0,0.3);
+
+}
+
+.treatment-box{
+
+    width:85%;
+    margin:30px auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px lightgray;
+
+}
+
+.treatment-box table{
+
+    width:100%;
+    border-collapse:collapse;
+
+}
+
+.treatment-box th{
+
+    background:#C8E6C9;   /* Light Green */
+
+    color:#1B5E20;
+
+    width:30%;
+
+    padding:15px;
+
+    font-weight:bold;
+
+}
+
+.treatment-box td{
+
+    padding:12px;
+    border:1px solid #ddd;
+
+}
+.result-table{
+
+    width:60%;
+    margin:30px auto;
+    border-collapse:collapse;
+    font-size:26px;
+
+}
+
+.result-table td{
+
+    padding:15px;
+    border-bottom:1px solid #ddd;
+
+}
+
+.result-table td:first-child{
+
+    width:45%;
+    font-weight:bold;
+    color:#2E7D32;
+    text-align:right;
+    padding-right:25px;
+
+}
+
+.result-table td:last-child{
+
+    text-align:left;
+    color:#222;
+    font-weight:bold;
+
+}
+.hero-right h1{
+
+    margin:0;
+
+    color:#1B5E20;
+
+    font-size:50px;
+
+    text-align:center;
+
+}
+.hero-text{
+
+    color:#1565C0;      /* Blue */
+
+    font-size:23px;
+
+    font-weight:bold;
+
+    line-height:1.0;
+
+}
